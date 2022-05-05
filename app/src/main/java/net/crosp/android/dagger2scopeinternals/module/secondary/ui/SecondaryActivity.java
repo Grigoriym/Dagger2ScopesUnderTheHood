@@ -1,8 +1,8 @@
 package net.crosp.android.dagger2scopeinternals.module.secondary.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 import net.crosp.android.dagger2scopeinternals.R;
 import net.crosp.android.dagger2scopeinternals.base.ui.activity.BaseSingleFragmentActivity;
@@ -15,16 +15,13 @@ import net.crosp.android.dagger2scopeinternals.module.shareddependencies.impleme
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class SecondaryActivity extends BaseSingleFragmentActivity implements ProvidesComponent<SecondaryScreenComponent>, SecondaryFirstFragment.SecondFragmentRouter, SecondarySecondFragment.FirstFragmentRouter, GlobalEventNotifierContract.EventListener<SomeEvent> {
     @Inject
     GlobalEventNotifierContract<SomeEvent> mGlobalEventNotifier;
     // Views
     @Inject
     CarDataRepositoryContract mCarRepoOther;
-    @BindView(R.id.toolbar_main)
+//    @BindView(R.id.toolbar_main)
     Toolbar mMainToolbar;
     // UI Variables
     ActionBar mActionBar;
@@ -35,7 +32,6 @@ public class SecondaryActivity extends BaseSingleFragmentActivity implements Pro
         super.onCreate(savedInstanceState);
         // Inject views
         injectDependencies();
-        ButterKnife.bind(this);
         initUI();
         navigateToInitialScreen();
     }
@@ -54,6 +50,7 @@ public class SecondaryActivity extends BaseSingleFragmentActivity implements Pro
     }
 
     protected void initToolbar() {
+        mMainToolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(mMainToolbar);
         mActionBar = getSupportActionBar();
     }

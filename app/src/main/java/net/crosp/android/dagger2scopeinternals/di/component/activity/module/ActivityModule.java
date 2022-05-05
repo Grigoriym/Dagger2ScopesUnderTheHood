@@ -2,8 +2,8 @@ package net.crosp.android.dagger2scopeinternals.di.component.activity.module;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 
 import net.crosp.android.dagger2scopeinternals.di.NamedConstants;
@@ -20,7 +20,6 @@ import dagger.Provides;
  * Copyright (C) 2017 CROSP Solutions
  */
 @Module
-@PerActivity
 public class ActivityModule {
     private final AppCompatActivity mActivity;
     public static final String CONTEXT_ACTIVITY = "context.activity";

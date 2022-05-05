@@ -1,7 +1,7 @@
 package net.crosp.android.dagger2scopeinternals.base.ui.contract;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 
 /**
  * Created by Alexander Molochko on 9/3/15.

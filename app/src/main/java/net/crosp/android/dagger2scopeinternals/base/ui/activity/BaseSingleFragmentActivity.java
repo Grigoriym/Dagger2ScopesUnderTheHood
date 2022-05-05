@@ -1,7 +1,7 @@
 package net.crosp.android.dagger2scopeinternals.base.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
+import androidx.annotation.IdRes;
 
 import net.crosp.android.dagger2scopeinternals.base.ui.contract.FragmentController;
 

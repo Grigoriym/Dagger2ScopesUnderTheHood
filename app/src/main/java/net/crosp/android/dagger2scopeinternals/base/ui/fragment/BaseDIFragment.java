@@ -1,6 +1,6 @@
 package net.crosp.android.dagger2scopeinternals.base.ui.fragment;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import net.crosp.android.dagger2scopeinternals.di.contract.ProvidesComponent;
 

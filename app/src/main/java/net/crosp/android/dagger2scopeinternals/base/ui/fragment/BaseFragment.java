@@ -2,13 +2,11 @@ package net.crosp.android.dagger2scopeinternals.base.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by Alexander Molochko on 12/18/16.
@@ -38,8 +36,6 @@ public abstract class BaseFragment extends BaseDIFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Inject views in child fragments
-        ButterKnife.bind(this, view);
     }
 
     @Override

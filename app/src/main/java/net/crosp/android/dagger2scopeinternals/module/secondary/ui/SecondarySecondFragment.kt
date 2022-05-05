@@ -1,61 +1,47 @@
-package net.crosp.android.dagger2scopeinternals.module.secondary.ui;
+package net.crosp.android.dagger2scopeinternals.module.secondary.ui
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import net.crosp.android.dagger2scopeinternals.R
+import net.crosp.android.dagger2scopeinternals.base.ui.fragment.BaseFragment
+import net.crosp.android.dagger2scopeinternals.module.secondary.di.components.SecondaryScreenComponent
+import net.crosp.android.dagger2scopeinternals.module.shareddependencies.contract.CarPartsDataRepositoryContract
+import javax.inject.Inject
 
-import net.crosp.android.dagger2scopeinternals.R;
-import net.crosp.android.dagger2scopeinternals.base.ui.fragment.BaseFragment;
-import net.crosp.android.dagger2scopeinternals.module.secondary.di.components.SecondaryScreenComponent;
-import net.crosp.android.dagger2scopeinternals.module.shareddependencies.contract.CarPartsDataRepositoryContract;
+class SecondarySecondFragment : BaseFragment() {
 
-import javax.inject.Inject;
-
-import butterknife.OnClick;
-
-/**
- * A placeholder fragment containing a simple view.
- */
-public class SecondarySecondFragment extends BaseFragment {
-    // Callbacks
+    @JvmField
     @Inject
-    CarPartsDataRepositoryContract mCarPartsDataRepository;
+    var mCarPartsDataRepository: CarPartsDataRepositoryContract? = null
+
+    @JvmField
     @Inject
-    FirstFragmentRouter mRouter;
+    var mRouter: FirstFragmentRouter? = null
 
-    public SecondarySecondFragment() {
+    private lateinit var fragmentButton: Button
+
+    override fun getFragmentLayoutId(): Int {
+        return R.layout.fragment_secondary_second
     }
 
-    //================================================================================
-    // Lifecycle callbacks
-    //================================================================================
-
-    @Override
-    public int getFragmentLayoutId() {
-        return R.layout.fragment_secondary_second;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        getComponent(SecondaryScreenComponent::class.java)
+            .plusSecondarySecondViewComponent()
+            .inject(this)
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Injecting dependencies
-        this.getComponent(SecondaryScreenComponent.class)
-                .plusSecondarySecondViewComponent()
-                .inject(this);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fragmentButton = view.findViewById(R.id.button_first_fragment)
 
+        fragmentButton.setOnClickListener {
+            mRouter?.onSwitchToFirstFragment()
+        }
     }
 
-    //================================================================================
-    // View implementation
-    //================================================================================
-
-    @OnClick(R.id.button_first_fragment)
-    void switchToFirstFragment() {
-        mRouter.onSwitchToFirstFragment();
-    }
-
-    public interface FirstFragmentRouter {
-        void onSwitchToFirstFragment();
+    interface FirstFragmentRouter {
+        fun onSwitchToFirstFragment()
     }
 }
-
-

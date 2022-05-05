@@ -1,72 +1,48 @@
-package net.crosp.android.dagger2scopeinternals.module.main.ui;
+package net.crosp.android.dagger2scopeinternals.module.main.ui
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.Button;
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import net.crosp.android.dagger2scopeinternals.R
+import net.crosp.android.dagger2scopeinternals.base.ui.fragment.BaseFragment
+import net.crosp.android.dagger2scopeinternals.module.main.di.components.MainScreenComponent
+import javax.inject.Inject
 
-import net.crosp.android.dagger2scopeinternals.R;
-import net.crosp.android.dagger2scopeinternals.base.ui.fragment.BaseFragment;
-import net.crosp.android.dagger2scopeinternals.module.main.di.components.MainScreenComponent;
+class MainSecondFragment : BaseFragment() {
 
-import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.OnClick;
-
-/**
- * A placeholder fragment containing a simple view.
- */
-public class MainSecondFragment extends BaseFragment {
-    // Views
-    @BindView(R.id.button_first_fragment)
-    Button mFirstFragmentButton;
-
-    // Callbacks
+    @JvmField
     @Inject
-    FirstFragmentRouter mRouter;
+    var mRouter: FirstFragmentRouter? = null
 
-    public MainSecondFragment() {
+    private lateinit var mFirstFragmentButton: Button
+    private lateinit var activityButton: Button
+
+    override fun getFragmentLayoutId(): Int {
+        return R.layout.fragment_main_second
     }
 
-    //================================================================================
-    // Lifecycle callbacks
-    //================================================================================
-
-    @Override
-    public int getFragmentLayoutId() {
-        return R.layout.fragment_main_second;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        getComponent(MainScreenComponent::class.java)
+            .plusMainSecondViewComponent()
+            .inject(this)
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Injecting dependencies
-        this.getComponent(MainScreenComponent.class)
-                .plusMainSecondViewComponent()
-                .inject(this);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mFirstFragmentButton = view.findViewById(R.id.button_first_fragment)
+        activityButton = view.findViewById(R.id.button_secondary_activity)
 
+        mFirstFragmentButton.setOnClickListener {
+            mRouter?.onSwitchBackToFirstFragment()
+        }
+        activityButton.setOnClickListener {
+            mRouter?.switchToSecondaryActivity()
+        }
     }
 
-
-    //================================================================================
-    // View implementation
-    //================================================================================
-
-    @OnClick(R.id.button_first_fragment)
-    void switchToFirstFragment() {
-        mRouter.onSwitchBackToFirstFragment();
-    }
-
-    @OnClick(R.id.button_secondary_activity)
-    void switchToSecondaryActivity() {
-        mRouter.switchToSecondaryActivity();
-    }
-
-    public interface FirstFragmentRouter {
-        void onSwitchBackToFirstFragment();
-
-        void switchToSecondaryActivity();
+    interface FirstFragmentRouter {
+        fun onSwitchBackToFirstFragment()
+        fun switchToSecondaryActivity()
     }
 }
-
-
