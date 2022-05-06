@@ -2,7 +2,7 @@ package net.crosp.android.dagger2scopeinternals.module.secondary.di.components;
 
 import net.crosp.android.dagger2scopeinternals.di.scope.PerFragment;
 import net.crosp.android.dagger2scopeinternals.module.secondary.di.modules.SecondaryFirstFragmentModule;
-import net.crosp.android.dagger2scopeinternals.module.secondary.ui.SecondaryFirstFragment;
+import net.crosp.android.dagger2scopeinternals.ui.secondary.SecondaryFirstFragment;
 
 import dagger.Subcomponent;
 

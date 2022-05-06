@@ -2,10 +2,10 @@ package net.crosp.android.dagger2scopeinternals.module.secondary.di.modules;
 
 import android.app.Activity;
 
-import net.crosp.android.dagger2scopeinternals.module.secondary.ui.SecondaryActivity;
-import net.crosp.android.dagger2scopeinternals.module.secondary.ui.SecondarySecondFragment;
-import net.crosp.android.dagger2scopeinternals.module.shareddependencies.contract.CarPartsDataRepositoryContract;
-import net.crosp.android.dagger2scopeinternals.module.shareddependencies.implementation.CarPartsDataRepository;
+import net.crosp.android.dagger2scopeinternals.ui.secondary.SecondaryActivity;
+import net.crosp.android.dagger2scopeinternals.ui.secondary.SecondarySecondFragment;
+import net.crosp.android.dagger2scopeinternals.data.shareddependencies.contract.CarPartsDataRepositoryContract;
+import net.crosp.android.dagger2scopeinternals.data.shareddependencies.implementation.CarPartsDataRepository;
 
 import javax.inject.Singleton;
 

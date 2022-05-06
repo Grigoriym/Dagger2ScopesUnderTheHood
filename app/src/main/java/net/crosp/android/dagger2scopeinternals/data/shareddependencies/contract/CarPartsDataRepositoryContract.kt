@@ -1,0 +1,3 @@
+package net.crosp.android.dagger2scopeinternals.data.shareddependencies.contract
+
+interface CarPartsDataRepositoryContract 

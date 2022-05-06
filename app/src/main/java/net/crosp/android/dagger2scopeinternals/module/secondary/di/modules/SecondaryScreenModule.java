@@ -3,7 +3,7 @@ package net.crosp.android.dagger2scopeinternals.module.secondary.di.modules;
 import android.app.Activity;
 
 import net.crosp.android.dagger2scopeinternals.di.scope.PerScreen;
-import net.crosp.android.dagger2scopeinternals.module.secondary.ui.SecondaryActivity;
+import net.crosp.android.dagger2scopeinternals.ui.secondary.SecondaryActivity;
 
 import dagger.Module;
 import dagger.Provides;

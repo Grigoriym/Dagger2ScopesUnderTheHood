@@ -2,7 +2,7 @@ package net.crosp.android.dagger2scopeinternals.module.main.di.components;
 
 import net.crosp.android.dagger2scopeinternals.di.scope.PerScreen;
 import net.crosp.android.dagger2scopeinternals.module.main.di.modules.MainScreenModule;
-import net.crosp.android.dagger2scopeinternals.module.main.ui.MainActivity;
+import net.crosp.android.dagger2scopeinternals.ui.main.MainActivity;
 
 import dagger.Subcomponent;
 

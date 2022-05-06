@@ -3,8 +3,8 @@ package net.crosp.android.dagger2scopeinternals.module.main.di.modules;
 import android.app.Activity;
 
 import net.crosp.android.dagger2scopeinternals.di.scope.PerFragment;
-import net.crosp.android.dagger2scopeinternals.module.main.ui.MainActivity;
-import net.crosp.android.dagger2scopeinternals.module.main.ui.MainSecondFragment;
+import net.crosp.android.dagger2scopeinternals.ui.main.MainActivity;
+import net.crosp.android.dagger2scopeinternals.ui.main.MainSecondFragment;
 
 import dagger.Module;
 import dagger.Provides;

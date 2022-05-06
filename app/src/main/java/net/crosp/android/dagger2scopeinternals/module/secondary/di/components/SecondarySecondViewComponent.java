@@ -1,7 +1,7 @@
 package net.crosp.android.dagger2scopeinternals.module.secondary.di.components;
 
 import net.crosp.android.dagger2scopeinternals.module.secondary.di.modules.SecondarySecondFragmentModule;
-import net.crosp.android.dagger2scopeinternals.module.secondary.ui.SecondarySecondFragment;
+import net.crosp.android.dagger2scopeinternals.ui.secondary.SecondarySecondFragment;
 
 import javax.inject.Singleton;
 

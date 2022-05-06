@@ -3,7 +3,7 @@
     package="net.crosp.android.dagger2scopeinternals">
 
     <application
-        android:name=".di.component.Dagger2ScopeInternalsApplication"
+        android:name=".Dagger2ScopeInternalsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,14 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".module.main.ui.MainActivity"
+            android:name=".ui.third.FourthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.third.ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.secondary.ui.SecondaryActivity" />
+        <activity android:name=".ui.secondary.SecondaryActivity" />
     </application>
 
 </manifest>
